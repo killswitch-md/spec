@@ -82,3 +82,12 @@ PRs welcome for additional detection patterns, language-specific parsers, and in
 ## License
 
 MIT — use freely, modify freely, no attribution required.
+
+
+## Licence
+
+MIT — see [LICENSE](LICENSE) for details.
+
+## Disclaimer
+
+This specification is provided "as-is" without warranty of any kind. It does not constitute legal, regulatory, or compliance advice in any jurisdiction. Use does not guarantee compliance with any applicable law, regulation, or standard — including the EU AI Act (2024/1689), Colorado AI Act (SB 24-205), or any other legislation. Organisations should consult qualified professionals to determine their regulatory obligations. The authors accept no liability for any loss or consequence arising from use of this specification.
