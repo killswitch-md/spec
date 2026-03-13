@@ -3,6 +3,7 @@
 User-agent: *
 Allow: /
 Allow: /llms.txt
+Allow: /knowledge
 Disallow: /admin/
 Disallow: /api/
 Disallow: /.env
