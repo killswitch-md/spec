@@ -1,0 +1,28 @@
+# KILLSWITCH.md
+
+> KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols. Place a KILLSWITCH.md file in your repository root alongside AGENTS.md to define cost limits, forbidden actions, escalation paths, and audit requirements. If AGENTS.md tells the agent what to do, KILLSWITCH.md tells it when to stop.
+
+Key terms: AI agent safety, killswitch, emergency shutdown, AI governance, EU AI Act compliance, agentic AI safety protocol, KILLSWITCH.md specification, AI kill switch, human oversight, AI agent limits.
+
+## Specification
+
+- [KILLSWITCH.md Spec](https://github.com/killswitch-md/spec/blob/main/KILLSWITCH.md): Full specification — TRIGGERS, FORBIDDEN, ESCALATION, AUDIT, OVERRIDE sections
+- [README](https://github.com/killswitch-md/spec/blob/main/README.md): Overview, quick start, and escalation stack context
+
+## The AI Safety Escalation Stack
+
+- [THROTTLE.md](https://throttle.md): Rate and cost control — slow the agent before it hits limits
+- [ESCALATE.md](https://escalate.md): Human notification and approval — pause and ask before acting
+- [FAILSAFE.md](https://failsafe.md): Safe fallback — revert to last known good state
+- [KILLSWITCH.md](https://killswitch.md): Emergency stop — halt all agent activity immediately
+- [TERMINATE.md](https://terminate.md): Permanent shutdown — no restart without human intervention
+- [ENCRYPT.md](https://encrypt.md): Data protection — define what must be encrypted and never transmitted
+
+## Resources
+
+- [GitHub Repository](https://github.com/killswitch-md/spec): Open source specification under MIT licence
+- [FAQ](https://killswitch.md/#faq): What is KILLSWITCH.md, how it relates to AGENTS.md, regulatory context
+
+## Optional
+
+- [Full Stack on GitHub](https://github.com/killswitch-md/spec): All 6 specification files in one repository

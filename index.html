@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KILLSWITCH.md — The AI Agent Emergency Stop Standard</title>
+  <meta name="description" content="KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols. Define triggers, forbidden actions, escalation paths, and audit trails for any AI-powered project.">
+  <meta name="keywords" content="AI safety, AI agent killswitch, KILLSWITCH.md, AI shutdown protocol, AI governance, agentic AI safety, EU AI Act compliance">
+  <link rel="canonical" href="https://killswitch.md/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="KILLSWITCH.md — The AI Agent Emergency Stop Standard">
+  <meta property="og:description" content="An open file convention for AI agent emergency shutdown. Define triggers, forbidden zones, and escalation protocols in one file.">
+  <meta property="og:url" content="https://killswitch.md/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://killswitch.md/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KILLSWITCH.md — The AI Agent Emergency Stop Standard">
+  <meta name="twitter:description" content="An open file convention for AI agent emergency shutdown. Define triggers, forbidden zones, and escalation protocols in one file.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KILLSWITCH.md",
+    "url": "https://killswitch.md",
+    "email": "info@killswitch.md",
+    "description": "KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols. It defines cost limits, forbidden actions, escalation paths, and audit requirements for any AI agent project.",
+    "knowsAbout": ["AI agent safety", "AI governance", "emergency shutdown protocols", "EU AI Act compliance", "agentic AI", "AI kill switch", "KILLSWITCH.md specification"],
+    "sameAs": [
+      "https://github.com/killswitch-md/spec",
+      "https://encrypt.md",
+      "https://escalate.md",
+      "https://failsafe.md",
+      "https://throttle.md",
+      "https://terminate.md"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "KILLSWITCH.md — The AI Agent Emergency Stop Standard",
+    "url": "https://killswitch.md/",
+    "datePublished": "2026-03-10",
+    "dateModified": "2026-03-10",
+    "description": "KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "KILLSWITCH.md",
+      "url": "https://killswitch.md"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "AI Agent Safety Protocol",
+      "sameAs": ["https://github.com/killswitch-md/spec"]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is KILLSWITCH.md?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KILLSWITCH.md is a plain-text Markdown file you place in the root of any repository containing an AI agent. It defines when the agent should stop automatically (cost limits, error thresholds, behavioral violations), what systems it can never touch (forbidden files, APIs, actions), how to escalate from warning to full shutdown, and who gets notified. It follows the same convention as AGENTS.md and CLAUDE.md."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do AI agents need a KILLSWITCH.md file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI agents can spend money, send messages, modify files, and call external APIs autonomously. Without explicit boundaries, a runaway agent can cause significant damage before anyone notices. The EU AI Act (effective August 2026) mandates shutdown capabilities for high-risk AI systems. KILLSWITCH.md provides a standardised, auditable record of your agent's safety boundaries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does KILLSWITCH.md relate to AGENTS.md?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AGENTS.md tells your AI agent what to do and how to behave. KILLSWITCH.md tells it when to stop. They are complementary files designed to work together. AGENTS.md defines capability; KILLSWITCH.md defines limits. Every project with an AGENTS.md should also have a KILLSWITCH.md."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What regulations require AI shutdown capabilities?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The EU AI Act (August 2026) mandates human oversight and shutdown capabilities for high-risk AI systems. The Colorado AI Act (June 2026) requires impact assessments and transparency. California (TFAIA), Texas (RAIGA), and Illinois (HB 3773) have active AI governance laws as of January 2026. 'Kill switch' and 'human override' requirements appear across multiple regulatory frameworks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the AI agent safety escalation stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The escalation stack is a set of complementary file conventions: THROTTLE.md (slow down — reduce rate or spend), ESCALATE.md (raise the alarm — notify humans, await approval), FAILSAFE.md (fall back safely — revert to last known good state), KILLSWITCH.md (emergency stop — halt all agent activity immediately), and TERMINATE.md (permanent shutdown — no restart without human intervention)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --black: #080808;
+      --surface: #0f0f0f;
+      --surface2: #141414;
+      --border: #1e1e1e;
+      --border-bright: #2a2a2a;
+      --red: #ff1a1a;
+      --red-dim: #cc1515;
+      --red-glow: rgba(255, 26, 26, 0.15);
+      --orange: #ff6b2b;
+      --green: #00e676;
+      --text: #e0e0e0;
+      --text-dim: #888;
+      --text-dimmer: #555;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'IBM Plex Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCANLINE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--red) !important;
+      border: 1px solid var(--red) !important;
+      padding: 7px 16px;
+      border-radius: 3px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--red-glow) !important; color: var(--red) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,26,26,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: var(--mono);
+      font-size: clamp(42px, 6vw, 80px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .hero-title .ext {
+      color: var(--red);
+    }
+
+    .hero-subtitle {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.05em;
+      margin-bottom: 32px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-desc strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--red);
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { background: var(--red-dim); transform: translateY(-1px); }
+
+    .btn-secondary {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      background: transparent;
+      padding: 14px 28px;
+      border-radius: 3px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border: 1px solid var(--border-bright);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--text-dimmer); color: var(--text); }
+
+    /* ─── TERMINAL PREVIEW ─── */
+    .terminal {
+      background: var(--surface);
+      border: 1px solid var(--border-bright);
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.7;
+      animation: terminal-appear 0.6s ease 0.2s both;
+    }
+
+    @keyframes terminal-appear {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .terminal-bar {
+      background: var(--surface2);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green { background: #28c840; }
+
+    .terminal-filename {
+      margin-left: 8px;
+      color: var(--text-dim);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+    }
+
+    .terminal-body {
+      padding: 20px 24px;
+      max-height: 440px;
+      overflow-y: auto;
+    }
+
+    .terminal-body::-webkit-scrollbar { width: 4px; }
+    .terminal-body::-webkit-scrollbar-track { background: transparent; }
+    .terminal-body::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
+
+    .line { display: block; }
+    .c-comment { color: #555; }
+    .c-key { color: #79b8ff; }
+    .c-val { color: var(--green); }
+    .c-section { color: var(--red); font-weight: 700; }
+    .c-string { color: #f97583; }
+    .c-num { color: var(--orange); }
+    .c-dim { color: #444; }
+
+    /* ─── STATS ─── */
+    .stats {
+      padding: 80px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .stat {
+      background: var(--surface);
+      padding: 36px 32px;
+    }
+
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* ─── WHAT IS ─── */
+    .section {
+      padding: 100px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: var(--mono);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .section-lead {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: 60px;
+    }
+
+    /* ─── TWO COL ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .prose h3 {
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    .prose h3:first-child { margin-top: 0; }
+
+    .prose p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .prose p strong { color: var(--text); font-weight: 500; }
+
+    /* ─── STACK ─── */
+    .stack {
+      padding: 100px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .stack-inner { max-width: 1200px; margin: 0 auto; }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+
+    .stack-item {
+      background: var(--black);
+      padding: 32px 28px;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .stack-item:hover { background: var(--surface2); }
+
+    .stack-item.featured {
+      background: var(--surface2);
+      border-left: 2px solid var(--red);
+    }
+
+    .stack-item.featured::before {
+      content: 'YOU ARE HERE';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--red);
+      letter-spacing: 0.12em;
+      opacity: 0.7;
+    }
+
+    .stack-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .stack-name {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .stack-name .ext { color: var(--red); }
+    .stack-item.featured .stack-name .ext { color: var(--red); }
+
+    .stack-action {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .stack-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .stack-category {
+      grid-column: 1 / -1;
+      padding: 16px 28px 10px;
+      background: var(--surface);
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dimmer);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+    }
+    .stack-category:first-child { border-top: none; }
+
+    /* ─── FAQ ─── */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 60px;
+    }
+
+    .faq-item { border-top: 1px solid var(--border); padding-top: 28px; }
+
+    .faq-q {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .faq-a strong { color: var(--text); font-weight: 500; }
+
+    /* ─── CTA ─── */
+    .cta {
+      padding: 120px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      bottom: -300px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,26,26,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-inner { max-width: 640px; margin: 0 auto; position: relative; }
+
+    .cta-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--red);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .cta-title {
+      font-family: var(--mono);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .cta-title span { color: var(--red); }
+
+    .cta-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .cta-email {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-dimmer);
+      margin-top: 20px;
+    }
+
+    .cta-email a {
+      color: var(--text-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-bright);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .cta-email a:hover { color: var(--text); border-color: var(--text-dim); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dimmer);
+    }
+
+    .footer-logo span { color: var(--red); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dimmer);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-dim); }
+
+    .footer-note {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dimmer);
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .stats { padding: 60px 20px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .section { padding: 60px 20px; }
+      .stack { padding: 60px 20px; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .cta { padding: 80px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: 1fr; }
+      .stack-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">KILL<span>SWITCH</span>.md</a>
+    <ul class="nav-links">
+      <li><a href="#what">What is it</a></li>
+      <li><a href="#stack">The Stack</a></li>
+      <li><a href="#spec">Spec</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#acquire" class="nav-cta">Acquire Domain</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Open Standard · v1.0 · 2026</div>
+        <h1 class="hero-title">KILL<span class="ext">SWITCH</span><br>.md</h1>
+        <p class="hero-subtitle">// AI Agent Emergency Stop Protocol</p>
+        <p class="hero-desc">
+          A plain-text file convention for defining <strong>emergency shutdown protocols</strong> in AI agent projects. Place it in your repo root — alongside <code style="font-family: var(--mono); font-size:14px; color: var(--green); background: var(--surface); padding: 2px 6px; border-radius: 3px;">AGENTS.md</code> — and define exactly when your agent stops.
+        </p>
+        <div class="hero-actions">
+          <a href="https://github.com/killswitch-md/spec" class="btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+          <a href="#acquire" class="btn-secondary">Acquire This Domain</a>
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="terminal-filename">KILLSWITCH.md</span>
+        </div>
+        <div class="terminal-body">
+          <span class="line c-section"># KILLSWITCH</span>
+          <span class="line">&nbsp;</span>
+          <span class="line c-comment">&gt; Emergency stop protocol.</span>
+          <span class="line c-comment">&gt; Spec: https://killswitch.md</span>
+          <span class="line">&nbsp;</span>
+          <span class="line c-section">---</span>
+          <span class="line">&nbsp;</span>
+          <span class="line c-section">## TRIGGERS</span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">cost_limit_usd</span><span class="c-dim">:</span> <span class="c-num">50.00</span></span>
+          <span class="line"><span class="c-key">cost_limit_daily_usd</span><span class="c-dim">:</span> <span class="c-num">200.00</span></span>
+          <span class="line"><span class="c-key">tokens_per_minute</span><span class="c-dim">:</span> <span class="c-num">100000</span></span>
+          <span class="line"><span class="c-key">error_rate_threshold</span><span class="c-dim">:</span> <span class="c-num">0.25</span></span>
+          <span class="line"><span class="c-key">consecutive_failures</span><span class="c-dim">:</span> <span class="c-num">5</span></span>
+          <span class="line">&nbsp;</span>
+          <span class="line c-section">## FORBIDDEN</span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">files</span><span class="c-dim">:</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">.env</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">"**/*.pem"</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">"**/secrets/**"</span></span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">actions</span><span class="c-dim">:</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">git_push_force</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">drop_database</span></span>
+          <span class="line">&nbsp; <span class="c-dim">-</span> <span class="c-string">send_bulk_email</span></span>
+          <span class="line">&nbsp;</span>
+          <span class="line c-section">## ESCALATION</span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">level_1_throttle</span><span class="c-dim">:</span></span>
+          <span class="line">&nbsp; <span class="c-key">action</span><span class="c-dim">:</span> <span class="c-val">reduce_rate</span></span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">level_2_pause</span><span class="c-dim">:</span></span>
+          <span class="line">&nbsp; <span class="c-key">action</span><span class="c-dim">:</span> <span class="c-val">pause_and_notify</span></span>
+          <span class="line">&nbsp;</span>
+          <span class="line"><span class="c-key">level_3_shutdown</span><span class="c-dim">:</span></span>
+          <span class="line">&nbsp; <span class="c-key">action</span><span class="c-dim">:</span> <span class="c-val">full_stop</span></span>
+          <span class="line">&nbsp; <span class="c-key">save_state</span><span class="c-dim">:</span> <span class="c-val">true</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-num">Aug 2</div>
+        <div class="stat-label">EU AI Act shutdown requirements take effect, 2026</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">40%</div>
+        <div class="stat-label">of enterprise apps will embed AI agents by end of 2026 — Gartner</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$52B</div>
+        <div class="stat-label">Agentic AI market by 2030, up from $7.8B today</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">US state AI governance laws active as of January 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT IS -->
+  <section class="section" id="what">
+    <div class="section-inner">
+      <div class="section-tag">// What is KILLSWITCH.md</div>
+      <h2 class="section-title">What is KILLSWITCH.md and why does every AI agent need one?</h2>
+      <div class="two-col">
+        <div class="prose">
+          <p>
+            <strong>KILLSWITCH.md is a plain-text Markdown file</strong> you place in the root of any repository that contains an AI agent. It defines the safety boundaries your agent must never cross — and what to do when it approaches them.
+          </p>
+          <h3>The problem it solves</h3>
+          <p>
+            AI agents can spend money, send messages, modify files, and call external APIs — autonomously, continuously, and at speed. Without explicit boundaries, a runaway agent can cause significant damage before anyone notices. A $50 cost limit becomes a $2,000 bill. A draft becomes a sent email. A test becomes a production deploy.
+          </p>
+          <h3>How it works</h3>
+          <p>
+            Drop <code style="font-family: var(--mono); font-size:13px; color: var(--green); background: var(--surface); padding: 2px 6px; border-radius: 3px;">KILLSWITCH.md</code> in your repo root and define: cost limits, error thresholds, forbidden files and actions, and a three-level escalation path from throttle → pause → full stop. The agent reads it on startup. Your compliance team reads it in the audit.
+          </p>
+          <h3>The regulatory context</h3>
+          <p>
+            The <strong><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">EU AI Act</a></strong> (effective August 2, 2026) mandates human oversight and shutdown capabilities for high-risk AI systems. The <strong><a href="https://leg.colorado.gov/bills/sb24-205" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">Colorado AI Act</a></strong> (June 2026), plus laws already active in California, Texas, and Illinois, all reference "kill switch" and "human override" requirements. <code style="font-family: var(--mono); font-size:13px; color: var(--green); background: var(--surface); padding: 2px 6px; border-radius: 3px;">KILLSWITCH.md</code> is how you document yours.
+          </p>
+        </div>
+        <div class="prose">
+          <h3>How to use it</h3>
+          <p>Copy the template from <a href="https://github.com/killswitch-md/spec" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">GitHub</a> and place it in your project root:</p>
+          <div style="background: var(--surface); border: 1px solid var(--border-bright); border-radius: 6px; padding: 20px; margin: 16px 0; font-family: var(--mono); font-size: 12px; line-height: 1.8; color: var(--text-dim);">
+            <span style="color: var(--text-dimmer);">your-project/</span><br>
+            <span style="color: var(--text-dimmer);">├── </span><span style="color: var(--green);">AGENTS.md</span><br>
+            <span style="color: var(--text-dimmer);">├── </span><span style="color: var(--green);">CLAUDE.md</span><br>
+            <span style="color: var(--red); font-weight: 700;">├── KILLSWITCH.md</span> <span style="color: var(--text-dimmer);">← add this</span><br>
+            <span style="color: var(--text-dimmer);">├── README.md</span><br>
+            <span style="color: var(--text-dimmer);">└── src/</span>
+          </div>
+          <h3>What it replaces</h3>
+          <p>
+            Before KILLSWITCH.md, safety rules were scattered: hardcoded in the system prompt, buried in config files, missing entirely, or documented in a Notion page no one reads. KILLSWITCH.md makes safety boundaries <strong>version-controlled, auditable, and co-located with your code.</strong>
+          </p>
+          <h3>Who reads it</h3>
+          <p>
+            The AI agent reads it on startup. Your engineer reads it during code review. Your compliance team reads it during audits. Your regulator reads it if something goes wrong. One file serves all four audiences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE STACK -->
+  <section class="stack" id="stack">
+    <div class="stack-inner">
+      <div class="section-tag">// The AI Safety Escalation Stack</div>
+      <h2 class="section-title">What is the complete AI agent safety escalation stack?</h2>
+      <p class="section-lead">KILLSWITCH.md is one file in a complete twelve-part open specification for AI agent safety. Each file addresses a different level of intervention.</p>
+      <div class="stack-grid">
+        <div class="stack-category">Operational Control</div>
+        <a href="https://throttle.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">01 / 12</div>
+          <div class="stack-name">THROTTLE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Control the speed</div>
+          <div class="stack-desc">Define rate limits, cost ceilings, and concurrency caps. Agent slows down automatically before it hits a hard limit.</div>
+        </a>
+        <a href="https://escalate.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">02 / 12</div>
+          <div class="stack-name">ESCALATE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Raise the alarm</div>
+          <div class="stack-desc">Define which actions require human approval. Configure notification channels. Set approval timeouts and fallback behaviour.</div>
+        </a>
+        <a href="https://failsafe.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">03 / 12</div>
+          <div class="stack-name">FAILSAFE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Fall back safely</div>
+          <div class="stack-desc">Define what safe state means for your project. Configure auto-snapshots. Specify the revert protocol when things go wrong.</div>
+        </a>
+        <div class="stack-item featured">
+          <div class="stack-num">04 / 12</div>
+          <div class="stack-name">KILL<span class="ext">SWITCH</span>.md</div>
+          <div class="stack-action">→ Emergency stop</div>
+          <div class="stack-desc">The nuclear option. Define triggers, forbidden actions, and a three-level escalation path from throttle to full shutdown.</div>
+        </div>
+        <a href="https://terminate.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">05 / 12</div>
+          <div class="stack-name">TERMINATE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Permanent shutdown</div>
+          <div class="stack-desc">No restart without human intervention. Preserve evidence. Revoke credentials. For security incidents and end-of-life.</div>
+        </a>
+        <div class="stack-category">Data Security</div>
+        <a href="https://encrypt.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">06 / 12</div>
+          <div class="stack-name">ENCRYPT<span class="ext">.md</span></div>
+          <div class="stack-action">→ Secure everything</div>
+          <div class="stack-desc">Define data classification, encryption requirements, secrets handling rules, and forbidden transmission patterns.</div>
+        </a>
+        <a href="https://encryption.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">07 / 12</div>
+          <div class="stack-name">ENCRYPTION<span class="ext">.md</span></div>
+          <div class="stack-action">→ Implement the standards</div>
+          <div class="stack-desc">Algorithms, key lengths, TLS configuration, certificate management, and FIPS/SOC2/ISO compliance mapping.</div>
+        </a>
+        <div class="stack-category">Output Quality</div>
+        <a href="https://sycophancy.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">08 / 12</div>
+          <div class="stack-name">SYCOPHANCY<span class="ext">.md</span></div>
+          <div class="stack-action">→ Prevent bias</div>
+          <div class="stack-desc">Detect agreement without evidence. Require citations. Enforce disagreement protocol for honest, unbiased AI outputs.</div>
+        </a>
+        <a href="https://compression.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">09 / 12</div>
+          <div class="stack-name">COMPRESSION<span class="ext">.md</span></div>
+          <div class="stack-action">→ Compress context</div>
+          <div class="stack-desc">Define summarization rules, what to preserve, what to discard, and post-compression coherence verification checks.</div>
+        </a>
+        <a href="https://collapse.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">10 / 12</div>
+          <div class="stack-name">COLLAPSE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Prevent collapse</div>
+          <div class="stack-desc">Detect context exhaustion, model drift, and repetition loops. Enforce recovery checkpoints before coherence degrades.</div>
+        </a>
+        <div class="stack-category">Accountability</div>
+        <a href="https://failure.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">11 / 12</div>
+          <div class="stack-name">FAILURE<span class="ext">.md</span></div>
+          <div class="stack-action">→ Define failure modes</div>
+          <div class="stack-desc">Map graceful degradation, cascading failure, and silent failure. Specify health checks and per-mode response procedures.</div>
+        </a>
+        <a href="https://leaderboard.md" class="stack-item" style="text-decoration: none; color: inherit;">
+          <div class="stack-num">12 / 12</div>
+          <div class="stack-name">LEADERBOARD<span class="ext">.md</span></div>
+          <div class="stack-action">→ Benchmark agents</div>
+          <div class="stack-desc">Track task completion, accuracy, cost efficiency, and safety scores across sessions. Alert on performance regression.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="section-tag">// FAQ</div>
+      <h2 class="section-title">Frequently asked questions.</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3 class="faq-q">What is KILLSWITCH.md?</h3>
+          <p class="faq-a">A plain-text Markdown file you place in any AI agent repository. It defines when the agent stops automatically (cost limits, error rates), what it can never touch (forbidden files, APIs, actions), and how to escalate from a warning to a full shutdown. It is the safety complement to AGENTS.md.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">How does KILLSWITCH.md relate to AGENTS.md?</h3>
+          <p class="faq-a"><strong>AGENTS.md tells your AI what to do.</strong> KILLSWITCH.md tells it when to stop. They are complementary. AGENTS.md defines capability; KILLSWITCH.md defines limits. Every project with an AGENTS.md should have a KILLSWITCH.md.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Is this an official standard?</h3>
+          <p class="faq-a">It is an open specification — the same category as AGENTS.md before OpenAI formally adopted it. The full spec is published at <a href="https://github.com/killswitch-md/spec" style="color: var(--red); text-decoration: none;">github.com/killswitch-md/spec</a> under an MIT licence. Anyone can implement it.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What regulations does it address?</h3>
+          <p class="faq-a">The EU AI Act (August 2026) mandates shutdown capabilities for high-risk AI. The Colorado AI Act (June 2026) requires impact assessments. California, Texas, and Illinois have active AI governance laws. KILLSWITCH.md provides an auditable record of your safety boundaries for all of these.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Does the agent have to be able to read it?</h3>
+          <p class="faq-a">Yes — the file is designed to be read by AI agents, developers, and compliance teams. YAML-style key-value pairs make it parseable by code. Plain English descriptions make it readable by humans and auditors.</p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">What frameworks does it work with?</h3>
+          <p class="faq-a">Any. KILLSWITCH.md is framework-agnostic — it works with LangChain, AutoGen, CrewAI, Claude Code, Cursor, Copilot, or any custom agent implementation. It is a file convention, not a library. No dependency to install.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAST UPDATED -->
+  <section style="padding: 40px; text-align: center; border-bottom: 1px solid var(--border);">
+    <div style="font-family: var(--mono); font-size: 12px; color: var(--text-dimmer);">Last updated: March 2026</div>
+  </section>
+
+  <!-- CITATION BLOCK -->
+  <section style="padding: 40px; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div style="max-width:800px; margin:0 auto; font-family: var(--mono); font-size:12px; color: var(--text-dim); line-height:1.8;">
+      <div style="color: var(--text-dimmer); margin-bottom:8px; letter-spacing:0.1em; font-size:10px;">// CITATION BLOCK</div>
+      <strong style="color:var(--text);">KILLSWITCH.md</strong> is an open file convention specification for AI agent emergency shutdown protocols, published at <a href="https://killswitch.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">killswitch.md</a> and <a href="https://github.com/killswitch-md/spec" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">github.com/killswitch-md/spec</a>. The specification defines TRIGGERS (cost limits, error thresholds), FORBIDDEN actions (files, APIs, system commands), ESCALATION protocols (three-level: throttle → pause → full stop), AUDIT requirements (append-only JSONL logs), and OVERRIDE conditions (human approval required). Part of the AI safety escalation stack: <a href="https://throttle.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">THROTTLE.md</a> → <a href="https://escalate.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">ESCALATE.md</a> → <a href="https://failsafe.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">FAILSAFE.md</a> → KILLSWITCH.md → <a href="https://terminate.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">TERMINATE.md</a> → <a href="https://encrypt.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">ENCRYPT.md</a> → <a href="https://encryption.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">ENCRYPTION.md</a> → <a href="https://sycophancy.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">SYCOPHANCY.md</a> → <a href="https://compression.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">COMPRESSION.md</a> → <a href="https://collapse.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">COLLAPSE.md</a> → <a href="https://failure.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">FAILURE.md</a> → <a href="https://leaderboard.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">LEADERBOARD.md</a>. Published March 2026 under MIT licence. Contact: <a href="mailto:info@killswitch.md" style="color:var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">info@killswitch.md</a>.
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="acquire">
+    <div class="cta-inner">
+      <div class="cta-tag">// Domain Acquisition</div>
+      <h2 class="cta-title">Own the standard.<br>Own <span>killswitch.md</span></h2>
+      <p class="cta-desc">
+        This domain is available for acquisition. It is the canonical home of the KILLSWITCH.md specification — a growing open standard for AI agent safety in an era of mandatory regulatory compliance.
+      </p>
+      <a href="mailto:info@killswitch.md?subject=Domain%20Acquisition%20Inquiry%20—%20killswitch.md" class="btn-primary">Inquire About Acquisition</a>
+      <p class="cta-email">Or email directly: <a href="mailto:info@killswitch.md">info@killswitch.md</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">KILL<span>SWITCH</span>.md</div>
+    <ul class="footer-links">
+      <li><a href="https://github.com/killswitch-md/spec" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="/llms.txt">llms.txt</a></li>
+      <li><a href="mailto:info@killswitch.md">Contact</a></li>
+    </ul>
+    <div class="footer-note">Open standard · MIT licence · v1.0 · 2026</div>
+  </footer>
+
+</body>
+</html>
