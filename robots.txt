@@ -1,23 +1,44 @@
+# robots.txt for killswitch.md
+
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Disallow: /admin/
+Disallow: /api/
+Disallow: /.env
+Disallow: /.git
+Disallow: /node_modules/
+Disallow: /.DS_Store
+Disallow: /*?version=*
+Disallow: /*?ref=*
+Disallow: /*?utm_*
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /cache/
 
-# Allow all AI search and retrieval bots
+# Specific AI crawlers allowed for llms.txt discovery
 User-agent: GPTBot
 Allow: /
+Allow: /llms.txt
 
-User-agent: OAI-SearchBot
+User-agent: CCBot
 Allow: /
+Allow: /llms.txt
 
-User-agent: ClaudeBot
+User-agent: anthropic-ai
 Allow: /
+Allow: /llms.txt
 
-User-agent: PerplexityBot
+User-agent: Claude-Web
 Allow: /
+Allow: /llms.txt
 
-User-agent: Google-Extended
-Allow: /
+# Slow down aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
 
-User-agent: Bingbot
-Allow: /
+User-agent: SemrushBot
+Crawl-delay: 10
 
+# Sitemap
 Sitemap: https://killswitch.md/sitemap.xml

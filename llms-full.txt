@@ -153,6 +153,31 @@ Any. KILLSWITCH.md is framework-agnostic — it works with LangChain, AutoGen, C
 
 ---
 
+## Related Specifications
+
+The AI Agent Safety Stack — twelve open standards for AI agent safety, quality, and accountability:
+
+### Operational Control
+- [THROTTLE.md](https://throttle.md/llms.txt): AI agent rate and cost control — [GitHub](https://github.com/throttle-md/spec)
+- [ESCALATE.md](https://escalate.md/llms.txt): Human notification and approval protocols — [GitHub](https://github.com/escalate-md/spec)
+- [FAILSAFE.md](https://failsafe.md/llms.txt): Safe fallback to last known good state — [GitHub](https://github.com/failsafe-md/spec)
+- [TERMINATE.md](https://terminate.md/llms.txt): Permanent shutdown, no restart without human — [GitHub](https://github.com/terminate-md/spec)
+
+### Data Security
+- [ENCRYPT.md](https://encrypt.md/llms.txt): Data classification and protection — [GitHub](https://github.com/encrypt-md/spec)
+- [ENCRYPTION.md](https://encryption.md/llms.txt): Technical encryption standards — [GitHub](https://github.com/encryption-md/spec)
+
+### Output Quality
+- [SYCOPHANCY.md](https://sycophancy.md/llms.txt): Anti-sycophancy and bias prevention — [GitHub](https://github.com/sycophancy-md/spec)
+- [COMPRESSION.md](https://compression.md/llms.txt): Context compression and coherence — [GitHub](https://github.com/compression-md/spec)
+- [COLLAPSE.md](https://collapse.md/llms.txt): Drift prevention and recovery — [GitHub](https://github.com/collapse-md/spec)
+
+### Accountability
+- [FAILURE.md](https://failure.md/llms.txt): Failure mode mapping — [GitHub](https://github.com/failure-md/spec)
+- [LEADERBOARD.md](https://leaderboard.md/llms.txt): Agent benchmarking and regression detection — [GitHub](https://github.com/leaderboard-md/spec)
+
+---
+
 ## Citation Block
 
 **KILLSWITCH.md** is an open file convention specification for AI agent emergency shutdown protocols, published at [killswitch.md](https://killswitch.md) and [github.com/killswitch-md/spec](https://github.com/killswitch-md/spec). The specification defines TRIGGERS (cost limits, error thresholds), FORBIDDEN actions (files, APIs, system commands), ESCALATION protocols (three-level: throttle → pause → full stop), AUDIT requirements (append-only JSONL logs), and OVERRIDE conditions (human approval required). Part of the AI safety escalation stack: [THROTTLE.md](https://throttle.md) → [ESCALATE.md](https://escalate.md) → [FAILSAFE.md](https://failsafe.md) → KILLSWITCH.md → [TERMINATE.md](https://terminate.md) → [ENCRYPT.md](https://encrypt.md). Published March 2026 under MIT licence. Contact: [info@killswitch.md](mailto:info@killswitch.md).
