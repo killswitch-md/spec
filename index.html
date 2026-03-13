@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KILLSWITCH.md — The AI Agent Emergency Stop Standard</title>
-  <meta name="description" content="KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols. Define triggers, forbidden actions, escalation paths, and audit trails for any AI-powered project.">
+  <meta name="description" content="KILLSWITCH.md: AI agent emergency shutdown protocol. Define cost limits, error thresholds, forbidden actions, escalation paths, human oversight, EU AI Act compliance.">
   <meta name="keywords" content="AI safety, AI agent killswitch, KILLSWITCH.md, AI shutdown protocol, AI governance, agentic AI safety, EU AI Act compliance">
   <link rel="canonical" href="https://killswitch.md/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="KILLSWITCH.md — The AI Agent Emergency Stop Standard">
-  <meta property="og:description" content="An open file convention for AI agent emergency shutdown. Define triggers, forbidden zones, and escalation protocols in one file.">
+  <meta property="og:description" content="KILLSWITCH.md: AI agent emergency shutdown protocol. Define cost limits, error thresholds, forbidden actions, escalation paths, human oversight, EU AI Act compliance.">
   <meta property="og:url" content="https://killswitch.md/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -34,20 +35,7 @@
     "email": "info@killswitch.md",
     "description": "KILLSWITCH.md is an open file convention for AI agent emergency shutdown protocols. It defines cost limits, forbidden actions, escalation paths, and audit requirements for any AI agent project.",
     "knowsAbout": ["AI agent safety", "AI governance", "emergency shutdown protocols", "EU AI Act compliance", "agentic AI", "AI kill switch", "KILLSWITCH.md specification"],
-    "sameAs": [
-      "https://github.com/killswitch-md/spec",
-      "https://throttle.md",
-      "https://escalate.md",
-      "https://failsafe.md",
-      "https://terminate.md",
-      "https://encrypt.md",
-      "https://encryption.md",
-      "https://sycophancy.md",
-      "https://compression.md",
-      "https://collapse.md",
-      "https://failure.md",
-      "https://leaderboard.md"
-    ]
+    "sameAs": ["https://killswitch.md", "https://throttle.md", "https://escalate.md", "https://failsafe.md", "https://terminate.md", "https://encrypt.md", "https://encryption.md", "https://sycophancy.md", "https://compression.md", "https://collapse.md", "https://failure.md", "https://leaderboard.md", "https://github.com/killswitch-md/spec"]
   }
   </script>
 
@@ -808,6 +796,7 @@
     </ul>
   </nav>
 
+  <main>
   <!-- HERO -->
   <section class="hero">
     <div class="hero-grid">
@@ -896,6 +885,7 @@
     </div>
   </div>
 
+  <article>
   <!-- WHAT IS -->
   <section class="section" id="what">
     <div class="section-inner">
@@ -906,21 +896,21 @@
           <p>
             <strong>KILLSWITCH.md is a plain-text Markdown file</strong> you place in the root of any repository that contains an AI agent. It defines the safety boundaries your agent must never cross — and what to do when it approaches them.
           </p>
-          <h3>The problem it solves</h3>
+          <h3>What problem does KILLSWITCH.md solve?</h3>
           <p>
             AI agents can spend money, send messages, modify files, and call external APIs — autonomously, continuously, and at speed. Without explicit boundaries, a runaway agent can cause significant damage before anyone notices. A $50 cost limit becomes a $2,000 bill. A draft becomes a sent email. A test becomes a production deploy.
           </p>
-          <h3>How it works</h3>
+          <h3>How does KILLSWITCH.md work?</h3>
           <p>
             Drop <code style="font-family: var(--mono); font-size:13px; color: var(--green); background: var(--surface); padding: 2px 6px; border-radius: 3px;">KILLSWITCH.md</code> in your repo root and define: cost limits, error thresholds, forbidden files and actions, and a three-level escalation path from throttle → pause → full stop. The agent reads it on startup. Your compliance team reads it in the audit.
           </p>
-          <h3>The regulatory context</h3>
+          <h3>What regulations require KILLSWITCH.md?</h3>
           <p>
             The <strong><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">EU AI Act</a></strong> (effective August 2, 2026) mandates human oversight and shutdown capabilities for high-risk AI systems. The <strong><a href="https://leg.colorado.gov/bills/sb24-205" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">Colorado AI Act</a></strong> (June 2026), plus laws already active in California, Texas, and Illinois, all reference "kill switch" and "human override" requirements. <code style="font-family: var(--mono); font-size:13px; color: var(--green); background: var(--surface); padding: 2px 6px; border-radius: 3px;">KILLSWITCH.md</code> is how you document yours.
           </p>
         </div>
         <div class="prose">
-          <h3>How to use it</h3>
+          <h3>How do I add KILLSWITCH.md to my project?</h3>
           <p>Copy the template from <a href="https://github.com/killswitch-md/spec" style="color: var(--red); text-decoration: none; border-bottom: 1px solid rgba(255,26,26,0.3);">GitHub</a> and place it in your project root:</p>
           <div style="background: var(--surface); border: 1px solid var(--border-bright); border-radius: 6px; padding: 20px; margin: 16px 0; font-family: var(--mono); font-size: 12px; line-height: 1.8; color: var(--text-dim);">
             <span style="color: var(--text-dimmer);">your-project/</span><br>
@@ -930,11 +920,11 @@
             <span style="color: var(--text-dimmer);">├── README.md</span><br>
             <span style="color: var(--text-dimmer);">└── src/</span>
           </div>
-          <h3>What it replaces</h3>
+          <h3>What did teams use before KILLSWITCH.md?</h3>
           <p>
             Before KILLSWITCH.md, safety rules were scattered: hardcoded in the system prompt, buried in config files, missing entirely, or documented in a Notion page no one reads. KILLSWITCH.md makes safety boundaries <strong>version-controlled, auditable, and co-located with your code.</strong>
           </p>
-          <h3>Who reads it</h3>
+          <h3>Who benefits from KILLSWITCH.md?</h3>
           <p>
             The AI agent reads it on startup. Your engineer reads it during code review. Your compliance team reads it during audits. Your regulator reads it if something goes wrong. One file serves all four audiences.
           </p>
@@ -1089,6 +1079,8 @@
       <p class="cta-email">Or email directly: <a href="mailto:info@killswitch.md">info@killswitch.md</a></p>
     </div>
   </section>
+  </article>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -1097,6 +1089,7 @@
       <li><a href="https://github.com/killswitch-md/spec" target="_blank" rel="noopener">GitHub</a></li>
       <li><a href="/llms.txt">llms.txt</a></li>
       <li><a href="/knowledge">Knowledge</a></li>
+      <li><a href="/privacy">Privacy</a></li>
       <li><a href="mailto:info@killswitch.md">Contact</a></li>
     </ul>
     <div class="footer-note">Open standard · MIT licence · v1.0 · 2026</div>
