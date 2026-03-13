@@ -758,16 +758,19 @@
       border-top: 1px solid var(--border);
       margin: 0;
     }
-
-.footer-disclaimer {
-  font-size: 11px;
-  color: var(--text-dimmer);
-  max-width: 1200px;
-  line-height: 1.5;
-  margin: 16px auto 0;
-  text-align: center;
-  font-family: var(--sans);
-}
+    /* ─── DISCLAIMER ─── */
+    .footer-disclaimer {
+      font-size: 11px;
+      color: var(--text-dimmer);
+      width: 80%;
+      max-width: 1200px;
+      line-height: 1.5;
+      margin: 24px auto 0;
+      text-align: justify;
+      font-family: var(--sans);
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
         /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -787,6 +790,7 @@
     }
 
     @media (max-width: 600px) {
+      .footer-disclaimer { width: 92%; }
       .stats-inner { grid-template-columns: 1fr; }
       .stack-grid { grid-template-columns: 1fr; }
     }
@@ -1102,11 +1106,11 @@
       <li><a href="/privacy">Privacy</a></li>
       <li><a href="mailto:info@killswitch.md">Contact</a></li>
     </ul>
-
-        <p class="footer-disclaimer">Disclaimer: This specification is an open file convention published under the MIT licence, provided "as-is" without warranty of any kind, express or implied. It does not constitute legal, regulatory, compliance, financial, or professional advice in any jurisdiction. Use of this specification does not guarantee compliance with any law, regulation, directive, or standard — including but not limited to the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), the Colorado Consumer Protections for Artificial Intelligence Act (SB 24-205), California AI transparency laws, or any other applicable national, state, federal, or international legislation. Organisations are solely responsible for determining their own regulatory obligations and should consult qualified legal and compliance professionals. The authors and domain holders accept no liability for any loss, damage, or regulatory consequence arising from the use or implementation of this specification. All domain names in the AI Agent Safety Stack are independently held assets and may be available for acquisition.</p>
-
     <div class="footer-note">Open standard · MIT licence · v1.0 · 2026</div>
   </footer>
+
+  <p class="footer-disclaimer">Disclaimer: This specification is an open file convention published under the MIT licence, provided "as-is" without warranty of any kind, express or implied. It does not constitute legal, regulatory, compliance, financial, or professional advice in any jurisdiction. Use of this specification does not guarantee compliance with any law, regulation, directive, or standard — including but not limited to the EU Artificial Intelligence Act (Regulation (EU) 2024/1689), the Colorado Consumer Protections for Artificial Intelligence Act (SB 24-205), California AI transparency laws, or any other applicable national, state, federal, or international legislation. Organisations are solely responsible for determining their own regulatory obligations and should consult qualified legal and compliance professionals. The authors and domain holders accept no liability for any loss, damage, or regulatory consequence arising from the use or implementation of this specification. All domain names in the AI Agent Safety Stack are independently held assets and may be available for acquisition.</p>
+
 
 </body>
 </html>
